@@ -1,0 +1,15 @@
+syntax="proto3";
+
+option go_package="grpc/proto";
+
+message DataRequest{
+  double x=1;
+}
+
+message DataResponse{
+  double y=1;
+}
+
+service ComputeFunction{
+  rpc compute(DataRequest)returns (DataResponse);
+}
