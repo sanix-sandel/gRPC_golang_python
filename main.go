@@ -10,12 +10,20 @@ import (
 
 
 type server struct{
-
+	//valuesMap map[float64]*pb.DataResponse
 }
 
 func (s *server)Compute(ctx context.Context, x *pb.DataRequest)(*pb.DataResponse, error){
 	y:=2*x.X+1
+
 	log.Print("Received value of x: ", x.X)
+
+	/*if s.valuesMap==nil{
+		s.valuesMap=make(map[float64]*pb.DataResponse)
+	}
+	s.valuesMap[x.X]=&pb.DataResponse{Y: y}*/
+
+
 	log.Print("The Y value is: ", y)
 	return &pb.DataResponse{Y:y}, nil
 }
